@@ -19,8 +19,7 @@ set(CMAKE_CXX_SIMULATE_ID "")
 set(CMAKE_CXX_COMPILER_FRONTEND_VARIANT "GNU")
 set(CMAKE_CXX_SIMULATE_VERSION "")
 
-set(CMAKE_CXX_COMPILER_SYSROOT "/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr")
-set(CMAKE_COMPILER_SYSROOT "/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr")
+
 
 
 set(CMAKE_AR "/usr/bin/ar")
@@ -78,7 +77,7 @@ endif()
 set(CMAKE_CXX_SYSROOT_FLAG "-isysroot")
 set(CMAKE_CXX_OSX_DEPLOYMENT_TARGET_FLAG "-mmacosx-version-min=")
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12;/opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/aarch64-apple-darwin21;/opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/backward;/opt/homebrew/Cellar/gcc@12/12.3.0/lib/gcc/12/gcc/aarch64-apple-darwin21/12/include;/opt/homebrew/Cellar/gcc@12/12.3.0/lib/gcc/12/gcc/aarch64-apple-darwin21/12/include-fixed;/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include;/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/System/Library/Frameworks")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12;/opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/aarch64-apple-darwin21;/opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/backward;/opt/homebrew/Cellar/gcc@12/12.3.0/lib/gcc/12/gcc/aarch64-apple-darwin21/12/include;/opt/homebrew/Cellar/gcc@12/12.3.0/lib/gcc/12/gcc/aarch64-apple-darwin21/12/include-fixed;/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include;/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/System/Library/Frameworks")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;emutls_w;gcc;gcc")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/opt/homebrew/Cellar/gcc@12/12.3.0/lib/gcc/12/gcc/aarch64-apple-darwin21/12;/opt/homebrew/Cellar/gcc@12/12.3.0/lib/gcc/12/gcc;/opt/homebrew/Cellar/gcc@12/12.3.0/lib/gcc/12;/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/lib")
-set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/System/Library/Frameworks")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/opt/homebrew/Cellar/gcc@12/12.3.0/lib/gcc/12/gcc/aarch64-apple-darwin21/12;/opt/homebrew/Cellar/gcc@12/12.3.0/lib/gcc/12/gcc;/opt/homebrew/Cellar/gcc@12/12.3.0/lib/gcc/12")
+set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

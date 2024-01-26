@@ -19,6 +19,6 @@
 -- Check for working CXX compiler: /opt/homebrew/bin/g++-12 - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (1.9s)
+-- Configuring done (4.0s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Users/vadimleonov/CLionProjects/project1/cmake-build-debug

@@ -823,7 +823,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "12.5"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_OSX_SYSROOT",
@@ -835,7 +835,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk"
+			"value" : "/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
