@@ -7,15 +7,15 @@
 
 class LongNum {
 public:
-    std::vector<char> digits;
-    int power = 0;
+    std::vector<int> digits;
     int sign = 1;
-    static LongNum init( std::string number);
-    LongNum(const std::string& number) {
-        *this = init(number);
-    }
-    LongNum& operator=(std::string number);
-};
+    int power = 0;
 
-LongNum add(const LongNum &a, const LongNum &b);
-LongNum operator+(const LongNum &a, const LongNum &b);
+    LongNum(std::string &str);
+
+    LongNum& operator=(std::string number);
+    LongNum operator+(LongNum&);
+private:
+    char power_flag = 0;
+    char dot_flag = 0;
+};
