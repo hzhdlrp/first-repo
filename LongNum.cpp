@@ -131,6 +131,12 @@ LongNum LongNum::operator+(LongNum &num) {
     return operand1;
 }
 
+LongNum LongNum::operator-(LongNum num) {
+    num.sign *= -1;
+    LongNum a = *this + num;
+    return a;
+}
+
 int LongNum::display() {
     if (this->sign == -1) {
         std::cout << '-';
@@ -153,3 +159,4 @@ int LongNum::display() {
     }
     return 0;
 }
+
