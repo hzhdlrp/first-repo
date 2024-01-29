@@ -137,6 +137,34 @@ LongNum LongNum::operator-(LongNum num) {
     return a;
 }
 
+LongNum LongNum::operator*(LongNum &num) {
+    LongNum result = *this;
+    result.sign *= num.sign;
+    result.power += num.power;
+
+    for (int i = 0; i < result.digits.size(); ++i) {
+        result.digits[i] = 0;
+    }
+
+    for (int i = 0; i < num.digits.size(); ++i) {
+        for (int j = 0; j < this->digits.size(); ++j) {
+            result.digits[j + i] += num.digits[i] * this->digits[j];
+        }
+    }
+    for (int j = 0; j < 2; ++j) {
+        for (int i = 0; i < result.digits.size(); ++i) {
+            result.digits[i + 1] += result.digits[i] / 10;
+            result.digits[i] %= 10;
+        }
+    }
+
+    return result;
+}
+
+//1234592839
+//42
+//-----------
+
 int LongNum::display() {
     if (this->sign == -1) {
         std::cout << '-';
@@ -159,4 +187,6 @@ int LongNum::display() {
     }
     return 0;
 }
+
+LongNum::LongNum() = default;
 

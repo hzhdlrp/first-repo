@@ -12,10 +12,14 @@ public:
     int power = 0;
 
     LongNum(const char *str);
+    LongNum();
+
 
     LongNum& operator=(const char *number);
     LongNum operator+(LongNum &num);
     LongNum operator-(LongNum num);
+    LongNum operator*(LongNum &num);
+
     int display();
 private:
     char not_zero_flag = 0;
