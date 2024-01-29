@@ -15,7 +15,8 @@ public:
 
     LongNum& operator=(const char *number);
     LongNum operator+(LongNum &num);
-    std::ostream& operator<<(std::ostream &str);
+
+    int display();
 private:
     char not_zero_flag = 0;
     char dot_flag = 0;

@@ -23,7 +23,7 @@ LongNum::LongNum(const char *str) {
         if (str[i] >= '0' && str[i] <= '9') {
             if (str[i] != '0') {
                 if (this->dot_flag == 1) {
-                    this->power = - i + 1;
+                    this->power = - i + 2;
                     this->dot_flag = -1;
                     if (this->sign == -1) this->power++;
                 }
@@ -52,13 +52,9 @@ LongNum &LongNum::operator=(const char *number) {
     this->sign = lNum.sign;
 }
 
-std::ostream &LongNum::operator<<(std::ostream &os) {
-
-}
-
 LongNum LongNum::operator+(LongNum &num) {
     LongNum operand1 = (this->power > num.power ? *this : num);
-    LongNum &operand2 = (this->power > num.power ? num : *this);
+    LongNum operand2 = (this->power > num.power ? num : *this);
     //power of operand1 is more than operand2
     int decimal_places_diff = (operand1.digits.size() - operand1.power) - (operand2.digits.size() - operand2.power);
     //разница в количестве знаков после запятой восполняется добавлением нулей
@@ -72,6 +68,7 @@ LongNum LongNum::operator+(LongNum &num) {
         }
     }
 
+
     if (operand1.sign == operand2.sign) {
         for (int i = 0; i < operand2.digits.size(); ++i) {
             operand1.digits[i] += operand2.digits[i];
@@ -84,6 +81,12 @@ LongNum LongNum::operator+(LongNum &num) {
                 if (operand1.digits[i] > 10) {
                     if (operand1.digits.size() > operand2.digits.size()) {
                         operand1.digits[i + 1]++;
+                        int j = 1;
+                        while (operand1.digits[i + j] > 10) {
+                            operand1.digits[i + j] %= 10;
+                            operand1.digits[i + j + 1]++;
+                            ++j;
+                        }
                         operand1.digits[i] %= 10;
                     } else {
                         operand1.digits.insert(operand1.digits.end(), 1);
@@ -104,7 +107,13 @@ LongNum LongNum::operator+(LongNum &num) {
                 if (operand1.digits[i] < 0) {
                     if (operand1.digits.size() > operand2.digits.size()) {
                         operand1.digits[i + 1]--;
-                        if (operand1.digits[i + 1] == 0) operand1.digits.pop_back();
+                        int j = 1;
+                        while (operand1.digits[i + j] < 0) {
+                            operand1.digits[i + j] += 10;
+                            operand1.digits[i + j + 1]--;
+                            ++j;
+                        }
+                        if (operand1.digits[i + j] == 0 && i + j == operand1.digits.size() - 1) operand1.digits.pop_back();
                         operand1.digits[i] += 10;
                     } else {
                         operand1.digits[i]++;
@@ -119,5 +128,28 @@ LongNum LongNum::operator+(LongNum &num) {
             }
         }
     }
-        return operand1;
+    return operand1;
+}
+
+int LongNum::display() {
+    if (this->sign == -1) {
+        std::cout << '-';
+    }
+    if (this->power > 0) {
+        for (int i = this->digits.size() - 1; i >= 0; --i) {
+            if (i == this->digits.size() - this->power - 1) {
+                std::cout << '.';
+            }
+            std::cout << this->digits[i];
+        }
+    } else {
+        std::cout << "0.";
+        for (int i = 0; i <= - this->power - 1; ++i) {
+            std::cout << '0';
+        }
+        for (int i = this->digits.size() - 1; i >= 0; --i) {
+            std::cout << this->digits[i];
+        }
+    }
+    return 0;
 }
