@@ -11,11 +11,12 @@ public:
     int sign = 1;
     int power = 0;
 
-    LongNum(std::string &str);
+    LongNum(const char *str);
 
-    LongNum& operator=(std::string number);
-    LongNum operator+(LongNum&);
+    LongNum& operator=(const char *number);
+    LongNum operator+(LongNum &num);
+    std::ostream& operator<<(std::ostream &str);
 private:
-    char power_flag = 0;
+    char not_zero_flag = 0;
     char dot_flag = 0;
 };

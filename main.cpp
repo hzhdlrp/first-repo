@@ -2,10 +2,8 @@
 #include "LongNum.cpp"
 
 int main() {
-    std::string num1String ("-1111.1111");
-    std::string num2String ("-0.0005");
-    std::string num3String ("1234.5");
-    LongNum num1 = num1String, num2 = num2String, num3 = num3String;
+    LongNum num1 = "0.00506", num2 = "-0.0005";
+
     for (int digit : num1.digits) {
         std::cout << digit;
     }
@@ -18,9 +16,14 @@ int main() {
     std::cout << std::endl <<  num2.sign << std::endl;
     std::cout << num2.power<<std::endl<<std::endl;
 
+    LongNum num3 = num1 + num2;
+
     for (int digit : num3.digits) {
         std::cout << digit;
     }
     std::cout << std::endl <<  num3.sign << std::endl;
     std::cout << num3.power<<std::endl;
+
+
+    return 0;
 }
