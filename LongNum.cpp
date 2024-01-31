@@ -49,11 +49,11 @@ LongNum::LongNum(const char *str) {
 }
 
 LongNum::LongNum(int num) {
-    if (num > 0) {
-        this->sign = 1;
-    } else {
+    if (num < 0) {
         this->sign = -1;
         num *= -1;
+    } else {
+        this->sign = 1;
     }
     int i = 0;
     while (num != 0) {
@@ -239,12 +239,16 @@ LongNum LongNum::operator/(LongNum num) {
         temp.digits.insert(temp.digits.begin(), this->digits[this->digits.size() - 1 - j]);
     }
     temp.power = len;
+    //std::cout << temp << " // " << num << std::endl;
     for (int i = 0; i < max(this->digits.size() - this->power, len - pow) + result.power; ++i) {
         int k = 0;
-        while (temp > num * k) {
+        while (temp > (num * k)) {
+            //std::cout << (num * k) << std::endl << "?? " << temp - (num * k) << std::endl;
             ++k;
         }
+        //std::cout << std::endl << k << "   <-- k " << std::endl << result << std::endl;
         temp = temp - num * (k - 1);
+        //std::cout << "nt " << temp << std::endl;
         result.digits.push_back(k);
         temp.digits.insert(temp.digits.begin(), this->digits[this->digits.size() - 1 - len - i]);
         temp.power++;
