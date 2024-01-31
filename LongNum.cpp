@@ -3,6 +3,9 @@
 #include <cstring>
 #include "LongNum.h"
 
+int max(int a, int b) {
+    return a > b ? a : b;
+}
 
 LongNum::LongNum(const char *str) {
     for (int i = 0; i < strlen(str); ++i) {
@@ -43,6 +46,22 @@ LongNum::LongNum(const char *str) {
             }
         }
     }
+}
+
+LongNum::LongNum(int num) {
+    if (num > 0) {
+        this->sign = 1;
+    } else {
+        this->sign = -1;
+        num *= -1;
+    }
+    int i = 0;
+    while (num != 0) {
+        this->digits.push_back( num % 10);
+        num /= 10;
+        ++i;
+    }
+    this->power = i;
 }
 
 LongNum &LongNum::operator=(const char *number) {
@@ -137,7 +156,7 @@ LongNum LongNum::operator-(LongNum num) {
     return a;
 }
 
-LongNum LongNum::operator*(const LongNum &num) {
+LongNum LongNum::operator*(const LongNum& num) {
     LongNum result = *this;
     result.sign *= num.sign;
     result.power += num.power;
@@ -170,11 +189,16 @@ LongNum LongNum::operator*(const LongNum &num) {
         result.digits[size - 1] %= 10;
     }
 
-    while (result.digits[0] == 0) {
+    while (result.digits[0] == 0 && result.digits.size() > result.power) {
         result.digits.erase(result.digits.begin());
     }
 
     return result;
+}
+
+LongNum LongNum::operator*(int i) {
+    LongNum LongI = LongNum(i);
+    return ((*this) * LongI);
 }
 
 std::ostream &operator<<(std::ostream &os, const LongNum &num) {
@@ -200,14 +224,32 @@ std::ostream &operator<<(std::ostream &os, const LongNum &num) {
     return os;
 }
 
-LongNum LongNum::operator/(const LongNum &num) {
+LongNum LongNum::operator/(LongNum num) {
     LongNum result;
     result.sign = this->sign * num.sign;
     result.power = this->power - num.power;
+    num.sign = 1;
 
+    int len = num.digits.size();
+    int pow = num.power;
 
+    num.power = len;
+    LongNum temp = {};
+    for (int j = 0; j < len; ++j) {
+        temp.digits.insert(temp.digits.begin(), this->digits[this->digits.size() - 1 - j]);
+    }
+    temp.power = len;
+    for (int i = 0; i < max(this->digits.size() - this->power, len - pow) + result.power; ++i) {
+        int k = 0;
+        while (temp > num * k) {
+            ++k;
+        }
+        temp = temp - num * (k - 1);
+        result.digits.push_back(k);
+        temp.digits.insert(temp.digits.begin(), this->digits[this->digits.size() - 1 - len - i]);
+        temp.power++;
+    }
 
-    // jfufdyudftfyjgijkhgfdcvbnm
     return result;
 }
 
