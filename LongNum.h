@@ -19,6 +19,11 @@ public:
     LongNum operator-(LongNum num);
     LongNum operator*(const LongNum &num);
     LongNum operator/(const LongNum &num);
+    bool operator<(const LongNum &num);
+    bool operator>(const LongNum &num);
+    bool operator ==(const LongNum &num);
+    bool operator >=(const LongNum &num);
+    bool operator <=(const LongNum &num);
     friend std::ostream &operator<<(std::ostream &os, const LongNum &num);
 
 private:

@@ -202,9 +202,68 @@ std::ostream &operator<<(std::ostream &os, const LongNum &num) {
 
 LongNum LongNum::operator/(const LongNum &num) {
     LongNum result;
+    result.sign = this->sign * num.sign;
+    result.power = this->power - num.power;
+
+
+
+    // jfufdyudftfyjgijkhgfdcvbnm
     return result;
 }
 
+bool LongNum::operator<(const LongNum &num) {
+    LongNum result = *this - num;
+    for (int digit : result.digits) {
+        if (digit) {
+            if (result.sign == -1) return true;
+            else return false;
+        }
+    }
+    return false;
+}
+
+bool LongNum::operator>(const LongNum &num) {
+    LongNum result = *this - num;
+    for (int digit : result.digits) {
+        if (digit) {
+            if (result.sign == -1) return false;
+            else return true;
+        }
+    }
+    return false;
+}
+
+bool LongNum::operator<=(const LongNum &num) {
+    LongNum result = *this - num;
+    for (int digit : result.digits) {
+        if (digit) {
+            if (result.sign == -1) return true;
+            else return false;
+        }
+    }
+    return true;
+}
+
+bool LongNum::operator>=(const LongNum &num) {
+    LongNum result = *this - num;
+    for (int digit : result.digits) {
+        if (digit) {
+            if (result.sign == -1) return false;
+            else return true;
+        }
+    }
+    return true;
+}
+
+bool LongNum::operator==(const LongNum &num) {
+    LongNum result = *this - num;
+    for (int digit : result.digits) {
+        if (digit) {
+            return false;
+        }
+    }
+    return true;
+}
 
 LongNum::LongNum() = default;
 
