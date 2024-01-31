@@ -159,7 +159,7 @@ LongNum LongNum::operator-(LongNum num) {
 LongNum LongNum::operator*(const LongNum& num) {
     LongNum result = *this;
     result.sign *= num.sign;
-    result.power += num.power;
+    int after_point = (this->digits.size() - this->power) + num.digits.size() - num.power;
 
     for (int &digit : result.digits) {
         digit = 0;
@@ -192,7 +192,7 @@ LongNum LongNum::operator*(const LongNum& num) {
     while (result.digits[0] == 0 && result.digits.size() > result.power) {
         result.digits.erase(result.digits.begin());
     }
-
+    result.power = result.digits.size() - after_point;
     return result;
 }
 
@@ -240,18 +240,24 @@ LongNum LongNum::operator/(LongNum num) {
     }
     temp.power = len;
     //std::cout << temp << " // " << num << std::endl;
-    for (int i = 0; i < max(this->digits.size() - this->power, len - pow) + result.power; ++i) {
+    int sign_dig = 0;
+    int iterations = max(this->digits.size() - this->power, len - pow) + result.power;
+    for (int i = 0; i < iterations; ++i) {
         int k = 0;
         while (temp > (num * k)) {
             //std::cout << (num * k) << std::endl << "?? " << temp - (num * k) << std::endl;
             ++k;
         }
+        if (k != 0) sign_dig = 1;
         //std::cout << std::endl << k << "   <-- k " << std::endl << result << std::endl;
         temp = temp - num * (k - 1);
         //std::cout << "nt " << temp << std::endl;
         result.digits.push_back(k);
         temp.digits.insert(temp.digits.begin(), this->digits[this->digits.size() - 1 - len - i]);
         temp.power++;
+        if (i == iterations - 1 && !sign_dig) {
+            iterations++;
+        }
     }
 
     return result;

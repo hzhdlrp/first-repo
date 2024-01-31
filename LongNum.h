@@ -7,6 +7,7 @@
 
 class LongNum {
 public:
+    int power = 0;
     explicit LongNum(const char *str);
     LongNum(int num);
     LongNum();
@@ -28,7 +29,6 @@ public:
 private:
     std::vector<int> digits;
     int sign = 1;
-    int power = 0;
     char not_zero_flag = 0;
     char dot_flag = 0;
 };
