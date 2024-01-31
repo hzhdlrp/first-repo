@@ -52,7 +52,7 @@ LongNum &LongNum::operator=(const char *number) {
     this->sign = lNum.sign;
 }
 
-LongNum LongNum::operator+(LongNum &num) {
+LongNum LongNum::operator+(const LongNum &num) {
     LongNum operand1 = (this->power > num.power ? *this : num);
     LongNum operand2 = (this->power > num.power ? num : *this);
     //power of operand1 is more than operand2
@@ -137,56 +137,74 @@ LongNum LongNum::operator-(LongNum num) {
     return a;
 }
 
-LongNum LongNum::operator*(LongNum &num) {
+LongNum LongNum::operator*(const LongNum &num) {
     LongNum result = *this;
     result.sign *= num.sign;
     result.power += num.power;
 
-    for (int i = 0; i < result.digits.size(); ++i) {
-        result.digits[i] = 0;
+    for (int &digit : result.digits) {
+        digit = 0;
     }
 
     for (int i = 0; i < num.digits.size(); ++i) {
         for (int j = 0; j < this->digits.size(); ++j) {
-            result.digits[j + i] += num.digits[i] * this->digits[j];
+            if (j + i == result.digits.size()) {
+                result.digits.push_back(num.digits[i] * this->digits[j]);
+            } else {
+                result.digits[j + i] += num.digits[i] * this->digits[j];
+            }
+        }
+        while (result.digits[result.digits.size() - 1] == 0) {
+            result.digits.pop_back();
         }
     }
-    for (int j = 0; j < 2; ++j) {
-        for (int i = 0; i < result.digits.size(); ++i) {
-            result.digits[i + 1] += result.digits[i] / 10;
-            result.digits[i] %= 10;
-        }
+
+    for (int i = 0; i < result.digits.size() - 1; ++i) {
+        result.digits[i + 1] += result.digits[i] / 10;
+        result.digits[i] %= 10;
+    }
+
+    while (result.digits[result.digits.size() - 1] > 10) {
+        int size = result.digits.size();
+        result.digits.push_back(result.digits[size - 1] / 10);
+        result.digits[size - 1] %= 10;
+    }
+
+    while (result.digits[0] == 0) {
+        result.digits.erase(result.digits.begin());
     }
 
     return result;
 }
 
-//1234592839
-//42
-//-----------
-
-int LongNum::display() {
-    if (this->sign == -1) {
-        std::cout << '-';
+std::ostream &operator<<(std::ostream &os, const LongNum &num) {
+    if (num.sign == -1) {
+        os << '-';
     }
-    if (this->power > 0) {
-        for (int i = this->digits.size() - 1; i >= 0; --i) {
-            if (i == this->digits.size() - this->power - 1) {
-                std::cout << '.';
+    if (num.power > 0) {
+        for (int i = num.digits.size() - 1; i >= 0; --i) {
+            if (i == num.digits.size() - num.power - 1) {
+                os << '.';
             }
-            std::cout << this->digits[i];
+            os << num.digits[i];
         }
     } else {
-        std::cout << "0.";
-        for (int i = 0; i <= - this->power - 1; ++i) {
-            std::cout << '0';
+        os << "0.";
+        for (int i = 0; i <= - num.power - 1; ++i) {
+            os << '0';
         }
-        for (int i = this->digits.size() - 1; i >= 0; --i) {
-            std::cout << this->digits[i];
+        for (int i = num.digits.size() - 1; i >= 0; --i) {
+            os << num.digits[i];
         }
     }
-    return 0;
+    return os;
 }
+
+LongNum LongNum::operator/(const LongNum &num) {
+    LongNum result;
+    return result;
+}
+
 
 LongNum::LongNum() = default;
 
