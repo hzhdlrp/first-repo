@@ -87,9 +87,6 @@ LongNum LongNum::operator+(const LongNum &num) {
         }
     }
 
-    std::cout << operand1 << " " << operand2 << std::endl;
-
-
     if (operand1.sign == operand2.sign) {
         for (int i = 0; i < operand2.digits.size(); ++i) {
             operand1.digits[i] += operand2.digits[i];
@@ -164,9 +161,6 @@ LongNum LongNum::operator*(const LongNum& num) {
                 result.digits[j + i] += num.digits[i] * this->digits[j];
             }
         }
-        while (result.digits[result.digits.size() - 1] == 0) {
-            result.digits.pop_back();
-        }
     }
 
     for (int i = 0; i < result.digits.size() - 1; ++i) {
@@ -180,9 +174,6 @@ LongNum LongNum::operator*(const LongNum& num) {
         result.digits[size - 1] %= 10;
     }
 
-    while (result.digits[0] == 0 && result.digits.size() > result.power) {
-        result.digits.erase(result.digits.begin());
-    }
     result.power = result.digits.size() - after_point;
     return result;
 }
