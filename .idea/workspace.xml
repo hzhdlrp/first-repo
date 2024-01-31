@@ -23,7 +23,6 @@
     <list default="true" id="e04e24ff-c15f-4cf3-8d55-55302144293d" name="Changes" comment="?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LongNum.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LongNum.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LongNum.h" beforeDir="false" afterPath="$PROJECT_DIR$/LongNum.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/project1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/project1.dir/main.cpp.o" afterDir="false" />
@@ -139,7 +138,7 @@
       <workItem from="1706284911962" duration="9299000" />
       <workItem from="1706310334851" duration="10854000" />
       <workItem from="1706526155014" duration="22805000" />
-      <workItem from="1706696296611" duration="13568000" />
+      <workItem from="1706696296611" duration="18480000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -245,7 +244,23 @@
       <option name="project" value="LOCAL" />
       <updated>1706709336074</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="?">
+      <option name="closed" value="true" />
+      <created>1706711706054</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1706711706054</updated>
+    </task>
+    <task id="LOCAL-00015" summary="?">
+      <option name="closed" value="true" />
+      <created>1706711710207</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1706711710207</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

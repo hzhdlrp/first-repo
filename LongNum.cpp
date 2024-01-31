@@ -87,32 +87,24 @@ LongNum LongNum::operator+(const LongNum &num) {
         }
     }
 
+    std::cout << operand1 << " " << operand2 << std::endl;
+
 
     if (operand1.sign == operand2.sign) {
         for (int i = 0; i < operand2.digits.size(); ++i) {
             operand1.digits[i] += operand2.digits[i];
-            if (i < operand2.digits.size() - 1) {
-                if (operand1.digits[i] > 10) {
-                    operand1.digits[i + 1]++;
-                    operand1.digits[i] %= 10;
-                }
-            } else if (i == operand2.digits.size() - 1) {
-                if (operand1.digits[i] > 10) {
-                    if (operand1.digits.size() > operand2.digits.size()) {
-                        operand1.digits[i + 1]++;
-                        int j = 1;
-                        while (operand1.digits[i + j] > 10) {
-                            operand1.digits[i + j] %= 10;
-                            operand1.digits[i + j + 1]++;
-                            ++j;
-                        }
-                        operand1.digits[i] %= 10;
-                    } else {
-                        operand1.digits.insert(operand1.digits.end(), 1);
-                        operand1.digits[i] %= 10;
-                    }
-                }
+        }
+        for (int i = 0; i < operand1.digits.size() - 1; ++i) {
+            if (operand1.digits[i] >= 10) {
+                operand1.digits[i + 1] += operand1.digits[i] / 10;
+                operand1.digits[i] %= 10;
             }
+        }
+        if (operand1.digits[operand1.digits.size() - 1] >= 10) {
+            int size = operand1.digits.size();
+            operand1.digits.push_back(operand1.digits[size - 1] / 10);
+            operand1.digits[size - 1] %= 10;
+            operand1.power++;
         }
     } else {
         for (int i = 0; i < operand2.digits.size(); ++i) {
@@ -123,26 +115,25 @@ LongNum LongNum::operator+(const LongNum &num) {
                     operand1.digits[i] += 10;
                 }
             } else if (i == operand2.digits.size() - 1) {
-                if (operand1.digits[i] < 0) {
-                    if (operand1.digits.size() > operand2.digits.size()) {
-                        operand1.digits[i + 1]--;
-                        int j = 1;
-                        while (operand1.digits[i + j] < 0) {
-                            operand1.digits[i + j] += 10;
-                            operand1.digits[i + j + 1]--;
-                            ++j;
-                        }
-                        if (operand1.digits[i + j] == 0 && i + j == operand1.digits.size() - 1) operand1.digits.pop_back();
-                        operand1.digits[i] += 10;
-                    } else {
-                        operand1.digits[i]++;
-                        operand1.digits[i] *= -1;
-                        for (int j = 0; j < i; ++j) {
-                            operand1.digits[j] = 10 - operand1.digits[j];
-                        }
-                        if (operand1.digits[i] == 0) operand1.digits.pop_back();
-                        operand1.sign *= -1;
+                for (int j = 0; i + j < operand1.digits.size() - 1; ++j) {
+                    if (operand1.digits[i + j] < 0) {
+                        operand1.digits[i + j + 1]--;
+                        operand1.digits[i + j] += 10;
                     }
+                }
+                if (operand1.digits[operand1.digits.size() - 1] < 0) {
+                    operand1.digits[operand1.digits.size() - 1] *= -1;
+                    for (int k = 0; k < operand1.digits.size() - 1; ++k) {
+                        operand1.digits[k] *= -1;
+                    }
+                    for (int k = 0; k < operand1.digits.size() - 1; ++k) {
+                        if (operand1.digits[k] < 0) {
+                            operand1.digits[k + 1]--;
+                            operand1.digits[k] += 10;
+                        }
+
+                    }
+                    operand1.sign *= -1;
                 }
             }
         }
@@ -226,39 +217,8 @@ std::ostream &operator<<(std::ostream &os, const LongNum &num) {
 
 LongNum LongNum::operator/(LongNum num) {
     LongNum result;
-    result.sign = this->sign * num.sign;
-    result.power = this->power - num.power;
-    num.sign = 1;
+    LongNum one = LongNum("1");
 
-    int len = num.digits.size();
-    int pow = num.power;
-
-    num.power = len;
-    LongNum temp = {};
-    for (int j = 0; j < len; ++j) {
-        temp.digits.insert(temp.digits.begin(), this->digits[this->digits.size() - 1 - j]);
-    }
-    temp.power = len;
-    //std::cout << temp << " // " << num << std::endl;
-    int sign_dig = 0;
-    int iterations = max(this->digits.size() - this->power, len - pow) + result.power;
-    for (int i = 0; i < iterations; ++i) {
-        int k = 0;
-        while (temp > (num * k)) {
-            //std::cout << (num * k) << std::endl << "?? " << temp - (num * k) << std::endl;
-            ++k;
-        }
-        if (k != 0) sign_dig = 1;
-        //std::cout << std::endl << k << "   <-- k " << std::endl << result << std::endl;
-        temp = temp - num * (k - 1);
-        //std::cout << "nt " << temp << std::endl;
-        result.digits.push_back(k);
-        temp.digits.insert(temp.digits.begin(), this->digits[this->digits.size() - 1 - len - i]);
-        temp.power++;
-        if (i == iterations - 1 && !sign_dig) {
-            iterations++;
-        }
-    }
 
     return result;
 }
