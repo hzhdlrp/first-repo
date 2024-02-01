@@ -9,7 +9,8 @@ class LongNum {
 public:
     int power = 0;
     explicit LongNum(const char *str);
-    LongNum(int num);
+    explicit LongNum(int num);
+    explicit LongNum(float num);
     LongNum();
 
     LongNum& operator=(const char *number);

@@ -48,6 +48,18 @@ LongNum::LongNum(const char *str) {
     }
 }
 
+LongNum::LongNum(float num) {
+    *this = LongNum(int(num));
+    num -= int(num);
+    num *= 10;
+    if (num < 0) num = -num;
+    while (num != 0) {
+        digits.insert(digits.begin(), int(num));
+        num -= int(num);
+        num *= 10;
+    }
+}
+
 LongNum::LongNum(int num) {
     if (num < 0) {
         this->sign = -1;
@@ -194,8 +206,10 @@ std::ostream &operator<<(std::ostream &os, const LongNum &num) {
             }
             os << num.digits[i];
         }
-        for (int i = 0; i < num.power - num.digits.size(); ++i) {
-            os << '0';
+        if (num.power > num.digits.size()) {
+            for (int i = 0; i < num.power - num.digits.size(); ++i) {
+                os << '0';
+            }
         }
     } else {
         os << "0.";
@@ -215,48 +229,47 @@ LongNum LongNum::operator/(LongNum num) {
         throw std::invalid_argument("division by 0");
     }
     LongNum result;
-    LongNum reciprocal;
-    LongNum temp;
-    int significant_dig_flag = 0;
-    temp.sign = 1;
-    temp.power = 1;
-    temp.digits = {1};
-    int pow = -num.power;
-    num.power = 0;
-    int s = num.sign;
+    bool significant_digit_flag = false;
+    int numpow = num.power;
+    int nums = num.sign;
     num.sign = 1;
-
-//    int after_point = max(this->digits.size() - this->power, num.digits.size() - num.power);
-
-    for (int i = 0; i < 10; ++i) {
-        int k = 0;
-        while (temp >= num * k) {
-            ++k;
-        }
-        if (k > 0) significant_dig_flag = 1;
-        if (significant_dig_flag) {
-            if (k < 10) {
-                reciprocal.digits.push_back(k);
-            } else {
-                reciprocal.digits.push_back(k/10);
-                reciprocal.digits.push_back(k%10);
-            }
-        }
-        temp = num - num * k;
-        if (temp == LongNum(0)) break;
+    num.power = num.digits.size();
+    int len = num.digits.size();
+    LongNum temp;
+    temp.digits = {};
+    int add_digit_iter = 0;
+    while (add_digit_iter < len) {
+        temp.digits.insert(temp.digits.begin(), *(digits.end() - add_digit_iter - 1));
         temp.power++;
-        pow--;
+        add_digit_iter++;
     }
-//
-//    std::cout << num << " " << k <<  std::endl << temp << std::endl;
-    reciprocal.power = pow;
-    reciprocal.sign = s;
-    std::cout << std::endl;
-    for (int digit : reciprocal.digits) {
-        std::cout << digit << " ";
+
+    for (int i = 0; i < 5; ++i) {
+       int k = 0;
+       while (temp >= num) {
+           temp = temp - num;
+           ++k;
+       }
+       //std::cout << temp << " " << num << " " << *this << " " << k << std::endl;
+       if (k > 0) significant_digit_flag = true;
+       if (significant_digit_flag) {
+           result.digits.insert(result.digits.begin(), k);
+       }
+       if (temp == LongNum(0)) break;
+       if (add_digit_iter < digits.size()) {
+           temp.digits.insert(temp.digits.begin(), *(digits.end() - add_digit_iter - 1));
+           add_digit_iter++;
+           result.power--;
+       } else {
+           temp.digits.insert(temp.digits.begin(), 0);
+           add_digit_iter++;
+       }
+        temp.power++;
     }
-//    std::cout << reciprocal << std::endl;
-    result = *this * reciprocal;
+
+    result.power += (digits.size() - power);
+    result.power -= (nums - numpow);
+    result.sign = sign * nums;
     return result;
 }
 
@@ -314,5 +327,10 @@ bool LongNum::operator==(const LongNum &num) {
     return true;
 }
 
+LongNum operator ""_ln(const char *str) {
+    return LongNum(str);
+}
+
 LongNum::LongNum() = default;
+
 
