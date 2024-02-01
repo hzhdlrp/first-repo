@@ -244,7 +244,7 @@ LongNum LongNum::operator/(LongNum num) {
         add_digit_iter++;
     }
 
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < digits.size() - len + accuracy; ++i) {
        int k = 0;
        while (temp >= num) {
            temp = temp - num;
@@ -259,10 +259,10 @@ LongNum LongNum::operator/(LongNum num) {
        if (add_digit_iter < digits.size()) {
            temp.digits.insert(temp.digits.begin(), *(digits.end() - add_digit_iter - 1));
            add_digit_iter++;
-           result.power--;
        } else {
            temp.digits.insert(temp.digits.begin(), 0);
            add_digit_iter++;
+           result.power--;
        }
         temp.power++;
     }

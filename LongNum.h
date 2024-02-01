@@ -7,6 +7,7 @@
 
 class LongNum {
 public:
+    static int accuracy;
     int power = 0;
     explicit LongNum(const char *str);
     explicit LongNum(int num);

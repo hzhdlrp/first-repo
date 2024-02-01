@@ -5,6 +5,10 @@
 int main() {
     clock_t start = clock();
 
+    int acc;
+    std::cout << "enter accuracy";
+    std::cin >> acc;
+    LongNum::accuracy = acc;
     LongNum num1 = 23457.3455_ln;
     LongNum num2("10.34");
     LongNum num3("-0.006");
