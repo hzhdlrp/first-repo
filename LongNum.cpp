@@ -194,6 +194,9 @@ std::ostream &operator<<(std::ostream &os, const LongNum &num) {
             }
             os << num.digits[i];
         }
+        for (int i = 0; i < num.power - num.digits.size(); ++i) {
+            os << '0';
+        }
     } else {
         os << "0.";
         for (int i = 0; i <= - num.power - 1; ++i) {
@@ -207,10 +210,53 @@ std::ostream &operator<<(std::ostream &os, const LongNum &num) {
 }
 
 LongNum LongNum::operator/(LongNum num) {
+    if (num == LongNum(0)) {
+        num.digits = {};
+        throw std::invalid_argument("division by 0");
+    }
     LongNum result;
-    LongNum one = LongNum("1");
+    LongNum reciprocal;
+    LongNum temp;
+    int significant_dig_flag = 0;
+    temp.sign = 1;
+    temp.power = 1;
+    temp.digits = {1};
+    int pow = -num.power;
+    num.power = 0;
+    int s = num.sign;
+    num.sign = 1;
 
+//    int after_point = max(this->digits.size() - this->power, num.digits.size() - num.power);
 
+    for (int i = 0; i < 10; ++i) {
+        int k = 0;
+        while (temp >= num * k) {
+            ++k;
+        }
+        if (k > 0) significant_dig_flag = 1;
+        if (significant_dig_flag) {
+            if (k < 10) {
+                reciprocal.digits.push_back(k);
+            } else {
+                reciprocal.digits.push_back(k/10);
+                reciprocal.digits.push_back(k%10);
+            }
+        }
+        temp = num - num * k;
+        if (temp == LongNum(0)) break;
+        temp.power++;
+        pow--;
+    }
+//
+//    std::cout << num << " " << k <<  std::endl << temp << std::endl;
+    reciprocal.power = pow;
+    reciprocal.sign = s;
+    std::cout << std::endl;
+    for (int digit : reciprocal.digits) {
+        std::cout << digit << " ";
+    }
+//    std::cout << reciprocal << std::endl;
+    result = *this * reciprocal;
     return result;
 }
 

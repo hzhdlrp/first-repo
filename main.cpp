@@ -5,10 +5,10 @@
 int main() {
     clock_t start = clock();
 
-    LongNum num1("10");
-    LongNum num2( "-1");
-    LongNum num3("4350253");
-    LongNum num4 = num2 * num3 + num1;
+    LongNum num1("1");
+    LongNum num2("10");
+    LongNum num3("-1");
+    LongNum num4 = num2 / num1;
     std::cout << (num4);
 
     clock_t end = clock();
