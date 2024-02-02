@@ -34,3 +34,4 @@ private:
     char not_zero_flag = 0;
     char dot_flag = 0;
 };
+

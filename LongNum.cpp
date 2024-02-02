@@ -81,6 +81,7 @@ LongNum &LongNum::operator=(const char *number) {
     this->power = lNum.power;
     this->digits = lNum.digits;
     this->sign = lNum.sign;
+    return *this;
 }
 
 LongNum LongNum::operator+(const LongNum &num) {
@@ -244,7 +245,7 @@ LongNum LongNum::operator/(LongNum num) {
         add_digit_iter++;
     }
 
-    for (int i = 0; i < digits.size() - len + accuracy; ++i) {
+    for (int i = 0; i < digits.size() - len + LongNum::accuracy; ++i) {
        int k = 0;
        while (temp >= num) {
            temp = temp - num;
