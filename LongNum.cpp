@@ -3,6 +3,8 @@
 #include <cstring>
 #include "LongNum.h"
 
+ int LongNum::accuracy = 0;
+
 int max(int a, int b) {
     return a > b ? a : b;
 }
@@ -245,7 +247,7 @@ LongNum LongNum::operator/(LongNum num) {
         add_digit_iter++;
     }
 
-    for (int i = 0; i < digits.size() - len + LongNum::accuracy; ++i) {
+    for (int i = 0; i <= digits.size() - numpow + accuracy; ++i) {
        int k = 0;
        while (temp >= num) {
            temp = temp - num;
@@ -255,8 +257,9 @@ LongNum LongNum::operator/(LongNum num) {
        if (k > 0) significant_digit_flag = true;
        if (significant_digit_flag) {
            result.digits.insert(result.digits.begin(), k);
+           result.power++;
        }
-       if (temp == LongNum(0)) break;
+       if ((*this - result * num) == LongNum(0)) break;
        if (add_digit_iter < digits.size()) {
            temp.digits.insert(temp.digits.begin(), *(digits.end() - add_digit_iter - 1));
            add_digit_iter++;
@@ -268,8 +271,7 @@ LongNum LongNum::operator/(LongNum num) {
         temp.power++;
     }
 
-    result.power += (digits.size() - power);
-    result.power -= (nums - numpow);
+    result.power += len - numpow - 1;
     result.sign = sign * nums;
     return result;
 }
