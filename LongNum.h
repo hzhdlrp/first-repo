@@ -24,6 +24,7 @@ public:
     bool operator<(const LongNum &num);
     bool operator>(const LongNum &num);
     bool operator ==(const LongNum &num);
+    bool operator !=(const LongNum &num);
     bool operator >=(const LongNum &num);
     bool operator <=(const LongNum &num);
 

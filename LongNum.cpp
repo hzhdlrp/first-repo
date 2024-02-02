@@ -328,6 +328,10 @@ bool LongNum::operator==(const LongNum &num) {
     return true;
 }
 
+bool LongNum::operator!=(const LongNum &num) {
+    return !(*this == num);
+}
+
 LongNum operator ""_ln(const char *str) {
     return LongNum(str);
 }
