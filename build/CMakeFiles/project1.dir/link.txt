@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/project1.dir/main.cpp.o CMakeFiles/project1.dir/LongNum.cpp.o -o project1  -Wl,-rpath,/Users/vadimleonov/CLionProjects/project1/build liblongnum.dylib 

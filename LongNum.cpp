@@ -276,6 +276,8 @@ LongNum LongNum::operator/(LongNum num) {
     return result;
 }
 
+// std::strong_ordering operator<=>(const LongNum& other)
+// return std::strong_ordering::equal
 bool LongNum::operator<(const LongNum &num) {
     LongNum result = *this - num;
     for (int digit : result.digits) {
@@ -322,7 +324,7 @@ bool LongNum::operator>=(const LongNum &num) {
 
 bool LongNum::operator==(const LongNum &num) {
     LongNum result = *this - num;
-    for (int digit : result.digits) {
+    for (auto &digit : result.digits) {
         if (digit) {
             return false;
         }
@@ -339,5 +341,3 @@ LongNum operator ""_ln(const char *str) {
 }
 
 LongNum::LongNum() = default;
-
-

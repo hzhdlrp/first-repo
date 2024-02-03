@@ -10,7 +10,7 @@ int main() {
     std::cin >> acc;
     LongNum::accuracy = acc;
     LongNum num1 = 23457.35_ln;
-    LongNum num2("10.34");
+    LongNum num2(10.34f);
     LongNum num3("-0.006");
     std::cout << num1 / num2;
 

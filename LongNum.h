@@ -15,7 +15,7 @@ public:
 
     LongNum& operator=(const char *number);
     LongNum operator+(const LongNum &num);
-    LongNum operator-(LongNum num);
+    LongNum operator-(LongNum num); // modify to use const
     LongNum operator*(const LongNum& num);
     LongNum operator*(int i);
     LongNum operator/(LongNum num);

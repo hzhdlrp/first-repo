@@ -11,7 +11,6 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="project1" targetName="longnum" />
       <config projectName="project1" targetName="project1" />
     </generated>
   </component>
@@ -23,7 +22,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e04e24ff-c15f-4cf3-8d55-55302144293d" name="Changes" comment="?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LongNum.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LongNum.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LongNum.h" beforeDir="false" afterPath="$PROJECT_DIR$/LongNum.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
@@ -91,15 +89,10 @@
   }
 }</component>
   <component name="RunManager" selected="CMake Application.project1">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="project1" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
       <method v="2" />
     </configuration>
-    <configuration name="longnum" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="project1" TARGET_NAME="longnum" CONFIG_NAME="Debug">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -117,7 +110,6 @@
     </configuration>
     <list>
       <item itemvalue="C/C++ File.main.cpp" />
-      <item itemvalue="CMake Application.longnum" />
       <item itemvalue="CMake Application.project1" />
       <item itemvalue="CMake Debug.project1" />
     </list>
@@ -150,7 +142,8 @@
       <workItem from="1706696296611" duration="33740000" />
       <workItem from="1706792027504" duration="227000" />
       <workItem from="1706792262076" duration="3366000" />
-      <workItem from="1706859993433" duration="3032000" />
+      <workItem from="1706859993433" duration="5330000" />
+      <workItem from="1706977430337" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -344,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706886397934</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="?">
+      <option name="closed" value="true" />
+      <created>1706887850471</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1706887850471</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
