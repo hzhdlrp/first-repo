@@ -1,0 +1,20 @@
+# ninja log v5
+0	81	1707170270732136641	build.ninja	662e018369b48e50
+0	16	0	clean	3c8e6cc385ee00ba
+930	1104	1707170217323937253	project1	23a8e92107b5b6e1
+0	548	1707170050661882514	test/CMakeFiles/mylib.dir/LongNum.cpp.o	d77450524b373446
+5	834	1707170217053943657	CMakeFiles/project1.dir/main.cpp.o	af13512910c23d41
+6	3572	1707170219795666210	test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	f33781ab03fa2d81
+6	1453	1707170217679171416	test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o	9e00d5135db9258b
+5	1351	1707170217576987994	test/CMakeFiles/tests.dir/test_display_work.cpp.o	4c04440d251c9caa
+835	1704	1707170217930019571	test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	50f8be833161ebef
+3572	3606	1707170219834687000	lib/libgtest.a	fd9ae22c511a25bd
+3628	3664	1707170219890223831	test/tests	6f269b94b35307e9
+548	571	1707170050689290000	test/libmylib.a	baa54f75febb6561
+3607	3628	1707170219856436000	lib/libgtest_main.a	587fd90b16f5d987
+864	930	1707170217157708000	long-number-library/libmylib.a	f17673a152dd7e90
+3633	3652	1707170219880532000	lib/libgmock_main.a	a488a3f941c069a1
+5	864	1707170217087199825	long-number-library/CMakeFiles/mylib.dir/LongNum.cpp.o	baca6c7434af4559
+666	688	1707166670537664000	libmylib.a	82588e89aeb18d55
+3607	3633	1707170219860868000	lib/libgmock.a	7193425404af26f0
+5	2225	1707170218447991942	test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o	f5901b7d46246055
