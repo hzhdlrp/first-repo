@@ -1,4 +1,0 @@
-/Users/vadimleonov/CLionProjects/project1/build/CMakeFiles/longnum.dir
-/Users/vadimleonov/CLionProjects/project1/build/CMakeFiles/project1.dir
-/Users/vadimleonov/CLionProjects/project1/build/CMakeFiles/edit_cache.dir
-/Users/vadimleonov/CLionProjects/project1/build/CMakeFiles/rebuild_cache.dir
