@@ -1,6 +1,6 @@
 #include <iostream>
 #include <ctime>
-#include "long-number-library/LongNum.cpp"
+#include "long-number-library/LongNum.hpp"
 
 int main() {
     clock_t start = clock();

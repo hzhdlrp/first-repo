@@ -2,7 +2,7 @@
 #include <vector>
 #include <cstring>
 #include <compare>
-#include "LongNum.h"
+#include "LongNum.hpp"
 
  int LongNum::accuracy = 0;
 

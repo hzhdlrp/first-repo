@@ -38,3 +38,5 @@ private:
     char dot_flag = 0;
 };
 
+LongNum operator ""_ln(const char *str);
+
