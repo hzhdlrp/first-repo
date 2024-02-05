@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
+#include <compare>
 #include "LongNum.h"
 
  int LongNum::accuracy = 0;
@@ -153,10 +154,11 @@ LongNum LongNum::operator+(const LongNum &num) {
     return operand1;
 }
 
-LongNum LongNum::operator-(LongNum num) {
-    num.sign *= -1;
-    LongNum a = *this + num;
-    return a;
+LongNum LongNum::operator-(const LongNum &num) {
+    LongNum result = num;
+    result.sign *= -1;
+    result = *this + result;
+    return result;
 }
 
 LongNum LongNum::operator*(const LongNum& num) {
@@ -278,6 +280,9 @@ LongNum LongNum::operator/(LongNum num) {
 
 // std::strong_ordering operator<=>(const LongNum& other)
 // return std::strong_ordering::equal
+
+// используется с++20, но компилятор не воспринимает std::strong_ordering
+// упростил >= как !(<) и <= как !(>)
 bool LongNum::operator<(const LongNum &num) {
     LongNum result = *this - num;
     for (int digit : result.digits) {
@@ -301,25 +306,11 @@ bool LongNum::operator>(const LongNum &num) {
 }
 
 bool LongNum::operator<=(const LongNum &num) {
-    LongNum result = *this - num;
-    for (int digit : result.digits) {
-        if (digit) {
-            if (result.sign == -1) return true;
-            else return false;
-        }
-    }
-    return true;
+    return !(*this > num);
 }
 
 bool LongNum::operator>=(const LongNum &num) {
-    LongNum result = *this - num;
-    for (int digit : result.digits) {
-        if (digit) {
-            if (result.sign == -1) return false;
-            else return true;
-        }
-    }
-    return true;
+    return !(*this < num);
 }
 
 bool LongNum::operator==(const LongNum &num) {
