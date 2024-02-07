@@ -2,12 +2,10 @@
 #include <long-number-library/LongNum.hpp>
 
 TEST(first, output) {
-    LongNum num("27674.283748");
-
+    LongNum num("-27674.283748");
     std::stringstream ss;
     ss << num;
-
-    ASSERT_EQ(ss.str(), "27674.283748");
+    ASSERT_EQ(ss.str(), "-27674.283748");
 }
 
 TEST(second, ariphmetics) {
@@ -29,5 +27,11 @@ TEST(third, ariphmetics) {
     std::stringstream ss;
     ss << num6;
     ASSERT_EQ(ss.str(), "55.467518623");
+}
+
+TEST(fourth, comparison) {
+    LongNum num1("15.076");
+    LongNum num2("15.00000001");
+    ASSERT_EQ(num1 > num2, true);
 }
 
