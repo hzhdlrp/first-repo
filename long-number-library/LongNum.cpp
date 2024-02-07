@@ -4,7 +4,7 @@
 #include <compare>
 #include "LongNum.hpp"
 
- int LongNum::accuracy = 5;
+ int LongNum::accuracy = 10;
 
 int max(int a, int b) {
     return a > b ? a : b;
@@ -162,6 +162,8 @@ LongNum LongNum::operator-(const LongNum &num) {
 }
 
 LongNum LongNum::operator*(const LongNum& num) {
+    if (digits.size() == 0 || num.digits.size() == 0) return LongNum("0");
+
     LongNum result = *this;
     result.sign *= num.sign;
     int after_point = (this->digits.size() - this->power) + num.digits.size() - num.power;
@@ -233,6 +235,9 @@ LongNum LongNum::operator/(LongNum num) {
         num.digits = {};
         throw std::invalid_argument("division by 0");
     }
+
+    if (digits.size() == 0) return LongNum("0");
+
     LongNum result;
     bool significant_digit_flag = false;
     int numpow = num.power;
@@ -243,13 +248,16 @@ LongNum LongNum::operator/(LongNum num) {
     LongNum temp;
     temp.digits = {};
     int add_digit_iter = 0;
-    while (add_digit_iter < len) {
+    while (add_digit_iter < len && add_digit_iter < digits.size()) {
         temp.digits.insert(temp.digits.begin(), *(digits.end() - add_digit_iter - 1));
         temp.power++;
         add_digit_iter++;
     }
 
-    for (int i = 0; i <= digits.size() - numpow + accuracy; ++i) {
+    if (power < numpow) accuracy += (numpow - power); // как мог шаманил с этой дурацкой точностью,
+    // вроде теперь во всех случаях ровное количество знаков после точки
+    //если все нули, считается до первой знчащей цифры
+    for (int i = 0; i <= power - numpow + accuracy; ++i) {
        int k = 0;
        while (temp >= num) {
            temp = temp - num;
@@ -261,7 +269,7 @@ LongNum LongNum::operator/(LongNum num) {
            result.digits.insert(result.digits.begin(), k);
            result.power++;
        }
-       if ((*this - result * num) == LongNum(0)) break;
+//       if ((*this - result * num) == LongNum(0)) break;
        if (add_digit_iter < digits.size()) {
            temp.digits.insert(temp.digits.begin(), *(digits.end() - add_digit_iter - 1));
            add_digit_iter++;
@@ -271,9 +279,11 @@ LongNum LongNum::operator/(LongNum num) {
            result.power--;
        }
         temp.power++;
+       if (i == power - numpow + accuracy && significant_digit_flag == 0) accuracy++;
     }
 
-    result.power += len - numpow - 1;
+    result.power -= digits.size() - power;
+    result.power += len - numpow + 1;
     result.sign = sign * nums;
     return result;
 }
