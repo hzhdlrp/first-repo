@@ -6,6 +6,6 @@ project(tests)
 add_subdirectory(googletest)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-add_executable(tests test_display_work.cpp)
+add_executable(tests all_tests.cpp)
 target_include_directories(tests PUBLIC ../)
 target_link_libraries(tests mylib gtest gtest_main)

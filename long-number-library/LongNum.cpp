@@ -4,7 +4,7 @@
 #include <compare>
 #include "LongNum.hpp"
 
- int LongNum::accuracy = 0;
+ int LongNum::accuracy = 5;
 
 int max(int a, int b) {
     return a > b ? a : b;
