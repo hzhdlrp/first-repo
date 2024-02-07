@@ -4,7 +4,7 @@
 #include <compare>
 #include "LongNum.hpp"
 
- int LongNum::accuracy = 10;
+ int LongNum::accuracy = 8;
 
 int max(int a, int b) {
     return a > b ? a : b;
@@ -202,7 +202,12 @@ LongNum LongNum::operator*(int i) {
     return ((*this) * LongI);
 }
 
-std::ostream &operator<<(std::ostream &os, const LongNum &num) {
+std::ostream &operator<<(std::ostream &os, LongNum &num) {
+    for (int i = num.digits.size() - 1; i >= 0; ++i) {
+        if (num.digits[i]) break;
+        num.digits.pop_back();
+        num.power--;
+    }
     if (num.sign == -1) {
         os << '-';
     }
@@ -211,6 +216,7 @@ std::ostream &operator<<(std::ostream &os, const LongNum &num) {
             if (i == num.digits.size() - num.power - 1) {
                 os << '.';
             }
+
             os << num.digits[i];
         }
         if (num.power > num.digits.size()) {

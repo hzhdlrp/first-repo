@@ -11,13 +11,23 @@ TEST(first, output) {
 }
 
 TEST(second, ariphmetics) {
+    LongNum num1(15);
+    LongNum num2(21);
+    LongNum num3 = num1 / num2;
+    std::stringstream ss;
+    ss << num3;
+    ASSERT_EQ(ss.str(), "0.71428571");
+}
+
+TEST(third, ariphmetics) {
     LongNum num1("77827.92863");
     LongNum num2("277.02883");
-    LongNum num3("-0.00002877");
+    LongNum num3("0.02877");
     LongNum num4("-7837.0001");
     LongNum num5(0);
     LongNum num6 = num1 / num2 + num3 * num4 - num5;
     std::stringstream ss;
     ss << num6;
-    ASSERT_EQ(ss.str(), "-2170794.0304");
+    ASSERT_EQ(ss.str(), "55.467518623");
 }
+

@@ -31,7 +31,7 @@ public:
     bool operator >=(const LongNum &num);
     bool operator <=(const LongNum &num);
 
-    friend std::ostream &operator<<(std::ostream &os, const LongNum &num);
+    friend std::ostream &operator<<(std::ostream &os, LongNum &num);
 private:
     char not_zero_flag = 0;
     char dot_flag = 0;

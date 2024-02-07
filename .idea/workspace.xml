@@ -30,10 +30,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/project1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/project1.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/long-number-library/CMakeFiles/mylib.dir/LongNum.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/long-number-library/CMakeFiles/mylib.dir/LongNum.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/long-number-library/libmylib.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/long-number-library/libmylib.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/project1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/project1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/long-number-library/LongNum.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/long-number-library/LongNum.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/long-number-library/LongNum.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/long-number-library/LongNum.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/all_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/all_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +116,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.project1">
+  <component name="RunManager" selected="Google Test.third.ariphmetics">
     <configuration name="first.output" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="project1" TARGET_NAME="tests" RUN_TARGET_PROJECT_NAME="project1" RUN_TARGET_NAME="tests" TEST_CLASS="first" TEST_METHOD="output" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -136,8 +141,11 @@
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="project1" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
-      <method v="2" />
+    <configuration name="third.ariphmetics" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="project1" TARGET_NAME="tests" RUN_TARGET_PROJECT_NAME="project1" RUN_TARGET_NAME="tests" TEST_CLASS="third" TEST_METHOD="ariphmetics" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
     </configuration>
     <configuration name="gmock" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="project1" TARGET_NAME="gmock" CONFIG_NAME="Debug">
       <method v="2">
@@ -182,8 +190,8 @@
       <item itemvalue="CMake Application.gmock_main" />
       <item itemvalue="CMake Application.gtest" />
       <item itemvalue="CMake Application.gtest_main" />
-      <item itemvalue="CMake Debug.project1" />
       <item itemvalue="CTest Application.All CTest" />
+      <item itemvalue="Google Test.third.ariphmetics" />
       <item itemvalue="Google Test.first.output" />
       <item itemvalue="Google Test.second.ariphmetics" />
       <item itemvalue="Google Test.output.one" />
@@ -191,11 +199,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Google Test.third.ariphmetics" />
         <item itemvalue="Google Test.second.ariphmetics" />
         <item itemvalue="Google Test.first.output" />
         <item itemvalue="Google Test.output.one" />
         <item itemvalue="Google Test.teststtstst.ahhraharha" />
-        <item itemvalue="CMake Debug.project1" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +238,7 @@
       <workItem from="1707142148293" duration="9932000" />
       <workItem from="1707170268552" duration="3119000" />
       <workItem from="1707287049531" duration="367000" />
-      <workItem from="1707322424405" duration="3847000" />
+      <workItem from="1707322424405" duration="5312000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -488,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707287353744</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="?">
+      <option name="closed" value="true" />
+      <created>1707327893812</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1707327893812</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,16 +543,5 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="?" />
     <option name="LAST_COMMIT_MESSAGE" value="?" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/long-number-library/LongNum.cpp</url>
-          <line>232</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
