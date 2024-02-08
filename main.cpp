@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <thread>
 #include "long-number-library/LongNum.hpp"
 
 LongNum calcPi() {
@@ -7,8 +8,8 @@ LongNum calcPi() {
 
     LongNum::accuracy = 100;
     LongNum Pi(0);
-    for (int i = 0; i < 80; ++i) {
 
+    for (int i = 0; i < 80; ++i) {
         LongNum deg16(1);
         LongNum base("0.0625");
         int e = i;
