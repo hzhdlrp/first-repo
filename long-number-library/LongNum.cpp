@@ -1,7 +1,5 @@
 #include <iostream>
-#include <vector>
 #include <cstring>
-#include <compare>
 #include "LongNum.hpp"
 
  int LongNum::accuracy = 8;
@@ -224,7 +222,8 @@ std::ostream &operator<<(std::ostream &os, LongNum &num) {
     return os;
 }
 
-LongNum LongNum::operator/(LongNum num) {
+LongNum LongNum::operator/(const LongNum &numb) {
+    LongNum num = numb;
     if (num == LongNum(0)) {
         num.digits = {};
         throw std::invalid_argument("division by 0");
@@ -329,6 +328,12 @@ bool LongNum::operator==(const LongNum &num) {
 
 bool LongNum::operator!=(const LongNum &num) {
     return !(*this == num);
+}
+
+void reduceTo100(LongNum &num) {
+    while (num.digits.size() > 101) {
+        num.digits.erase(num.digits.begin());
+    }
 }
 
 LongNum operator ""_ln(const char *str) {

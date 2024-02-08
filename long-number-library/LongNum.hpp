@@ -1,5 +1,4 @@
 #include <vector>
-#include <compare>
 
 #ifndef PROJECT1_LONGNUM_H
 #define PROJECT1_LONGNUM_H
@@ -9,25 +8,27 @@
 class LongNum {
 public:
     static int accuracy;
-    explicit LongNum(const char *str);
-    explicit LongNum(int num);
+    explicit LongNum(const char *);
+    explicit LongNum(int);
     LongNum();
 
-    LongNum& operator=(const char *number);
-    LongNum operator+(const LongNum &num);
-    LongNum operator-(const LongNum &num);
-    LongNum operator*(const LongNum& num);
-    LongNum operator*(int i);
-    LongNum operator/(LongNum num);
+    LongNum& operator=(const char *);
+    LongNum operator+(const LongNum &);
+    LongNum operator-(const LongNum &);
+    LongNum operator*(const LongNum &);
+    LongNum operator*(int);
+    LongNum operator/(const LongNum &);
 
-    bool operator<(const LongNum &num);
-    bool operator>(const LongNum &num);
-    bool operator ==(const LongNum &num);
-    bool operator !=(const LongNum &num);
-    bool operator >=(const LongNum &num);
-    bool operator <=(const LongNum &num);
+    bool operator<(const LongNum &);
+    bool operator>(const LongNum &);
+    bool operator ==(const LongNum &);
+    bool operator !=(const LongNum &);
+    bool operator >=(const LongNum &);
+    bool operator <=(const LongNum &);
 
-    friend std::ostream &operator<<(std::ostream &os, LongNum &num);
+    friend std::ostream &operator<<(std::ostream &, LongNum &);
+
+    friend void reduceTo100(LongNum &);
 private:
     std::vector<int> digits;
     int power = 0;
