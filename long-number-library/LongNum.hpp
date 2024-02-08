@@ -16,6 +16,10 @@ public:
     LongNum operator+(const LongNum &);
     LongNum operator-(const LongNum &);
     LongNum operator*(const LongNum &);
+    LongNum operator*=(const LongNum &);
+    LongNum operator/=(const LongNum &);
+    LongNum operator+=(const LongNum &);
+    LongNum operator-=(const LongNum &);
     LongNum operator*(int);
     LongNum operator/(LongNum);
 

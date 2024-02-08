@@ -8,10 +8,17 @@ LongNum calcPi() {
     LongNum::accuracy = 100;
     LongNum Pi(0);
     for (int i = 0; i < 100; ++i) {
+
         LongNum deg16(1);
-//        for (int j = 0 ; j < i; ++j) {
-//            deg16 = deg16 / 16_ln;
-//        }
+        LongNum base("0.0625");
+        int e = i;
+        while (e > 0) {
+            if (e % 2 == 1)
+                deg16 *= base;
+            base *= base;
+            e /= 2;
+        }
+
 //        std::cout << i << std::endl;
         Pi = Pi + deg16 * (4_ln/LongNum(8*i + 1) - 2_ln/LongNum(8*i + 4) - 1_ln/LongNum(8*i + 5) - 1_ln/LongNum(8*i + 6));
     }

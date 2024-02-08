@@ -335,6 +335,11 @@ void reduceTo100(LongNum &num) {
     }
 }
 
+LongNum LongNum::operator*=(const LongNum &num) {
+    (*this) = (*this) * num;
+    return *this;
+}
+
 LongNum operator ""_ln(const char *str) {
     return LongNum(str);
 }
