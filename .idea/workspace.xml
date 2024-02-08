@@ -28,13 +28,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e04e24ff-c15f-4cf3-8d55-55302144293d" name="Changes" comment="?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-5c17ff39aa8601e2de35.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-02-05T22-37-49-0970.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-project1-Debug-e8d244bf74cbb67e261e.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/project1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/project1.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/long-number-library/CMakeFiles/mylib.dir/LongNum.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/long-number-library/CMakeFiles/mylib.dir/LongNum.cpp.o" afterDir="false" />
@@ -247,7 +242,7 @@
       <workItem from="1707142148293" duration="9932000" />
       <workItem from="1707170268552" duration="3119000" />
       <workItem from="1707287049531" duration="367000" />
-      <workItem from="1707322424405" duration="9934000" />
+      <workItem from="1707322424405" duration="12476000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -537,7 +532,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707380793299</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="?">
+      <option name="closed" value="true" />
+      <created>1707383876424</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1707383876424</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

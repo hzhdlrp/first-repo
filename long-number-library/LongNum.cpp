@@ -222,8 +222,7 @@ std::ostream &operator<<(std::ostream &os, LongNum &num) {
     return os;
 }
 
-LongNum LongNum::operator/(const LongNum &numb) {
-    LongNum num = numb;
+LongNum LongNum::operator/(LongNum num) {
     if (num == LongNum(0)) {
         num.digits = {};
         throw std::invalid_argument("division by 0");

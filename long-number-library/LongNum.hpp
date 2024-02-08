@@ -17,7 +17,7 @@ public:
     LongNum operator-(const LongNum &);
     LongNum operator*(const LongNum &);
     LongNum operator*(int);
-    LongNum operator/(const LongNum &);
+    LongNum operator/(LongNum);
 
     bool operator<(const LongNum &);
     bool operator>(const LongNum &);
@@ -27,6 +27,7 @@ public:
     bool operator <=(const LongNum &);
 
     friend std::ostream &operator<<(std::ostream &, LongNum &);
+
 
     friend void reduceTo100(LongNum &);
 private:
