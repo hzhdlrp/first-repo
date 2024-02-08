@@ -35,7 +35,6 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/long-number-library/CMakeFiles/mylib.dir/LongNum.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/long-number-library/CMakeFiles/mylib.dir/LongNum.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/long-number-library/libmylib.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/long-number-library/libmylib.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/project1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/project1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/long-number-library/LongNum.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/long-number-library/LongNum.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/long-number-library/LongNum.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/long-number-library/LongNum.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
@@ -242,7 +241,7 @@
       <workItem from="1707142148293" duration="9932000" />
       <workItem from="1707170268552" duration="3119000" />
       <workItem from="1707287049531" duration="367000" />
-      <workItem from="1707322424405" duration="13886000" />
+      <workItem from="1707322424405" duration="14226000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -548,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707392167466</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="?">
+      <option name="closed" value="true" />
+      <created>1707394633207</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1707394633207</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
