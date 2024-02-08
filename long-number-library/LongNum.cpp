@@ -51,18 +51,6 @@ LongNum::LongNum(const char *str) {
     }
 }
 
-LongNum::LongNum(float num) {
-    *this = LongNum(int(num));
-    num -= int(num);
-    num *= 10;
-    if (num < 0) num = -num;
-    while (num != 0) {
-        digits.insert(digits.begin(), int(num));
-        num -= int(num);
-        num *= 10;
-    }
-}
-
 LongNum::LongNum(int num) {
     if (num < 0) {
         this->sign = -1;

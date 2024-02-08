@@ -33,5 +33,16 @@ TEST(fourth, comparison) {
     LongNum num1("15.076");
     LongNum num2("15.00000001");
     ASSERT_EQ(num1 > num2, true);
+    ASSERT_EQ(num1 >= num2, true);
+    ASSERT_EQ(num1 <= num2, false);
+    ASSERT_EQ(num1 < num2, false);
+}
+
+TEST(fifth, comparsion) {
+    LongNum num1 = 23874_ln;
+    LongNum num2("23874");
+    ASSERT_EQ(num1 == num2, true);
+    ASSERT_EQ(num2 > num1, false);
+    ASSERT_EQ(num1 >= num2, true);
 }
 
