@@ -2,7 +2,7 @@
 #include <cstring>
 #include "LongNum.hpp"
 
- int LongNum::accuracy = 8;
+ int LongNum::accuracy = 101;
 
 int max(int a, int b) {
     return a > b ? a : b;
@@ -329,8 +329,8 @@ bool LongNum::operator!=(const LongNum &num) {
     return !(*this == num);
 }
 
-void reduceTo100(LongNum &num) {
-    while (num.digits.size() > 101) {
+void reduceTo(int a, LongNum &num) {
+    while (num.digits.size() > a + num.power) {
         num.digits.erase(num.digits.begin());
     }
 }

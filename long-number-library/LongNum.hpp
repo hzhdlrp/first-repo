@@ -30,7 +30,7 @@ public:
     friend std::ostream &operator<<(std::ostream &, LongNum &);
 
 
-    friend void reduceTo100(LongNum &);
+    friend void reduceTo(int, LongNum &);
 private:
     std::vector<int> digits;
     int power = 0;

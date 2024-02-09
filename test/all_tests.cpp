@@ -48,10 +48,11 @@ TEST(fifth, comparsion) {
 }
 
 TEST(sixth, reduceTo100Function) {
-    const char *str1 = "3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067900000000000000";
-    std::string str2 = "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679";
+    const char *str1 = "3.141592653589793238462643383";
+    std::string str2 = "3.14159";
     LongNum num1(str1);
-    reduceTo100(num1);
+    int a = 5;
+    reduceTo(5, num1);
     std::stringstream ss;
     ss << num1;
     ASSERT_EQ(ss.str(), str2);
