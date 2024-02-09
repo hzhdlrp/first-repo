@@ -1,0 +1,1 @@
+/opt/homebrew/bin/g++-12 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/tests.dir/all_tests.cpp.o -o tests  ../long-number-library/libmylib.a ../lib/libgtest.a ../lib/libgtest_main.a ../lib/libgtest.a 

@@ -51,7 +51,6 @@ TEST(sixth, reduceTo100Function) {
     const char *str1 = "3.141592653589793238462643383";
     std::string str2 = "3.14159";
     LongNum num1(str1);
-    int a = 5;
     reduceTo(5, num1);
     std::stringstream ss;
     ss << num1;
