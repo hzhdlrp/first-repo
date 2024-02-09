@@ -20,7 +20,6 @@ LongNum calcPi() {
             e /= 2;
         }
 
-//        std::cout << i << std::endl;
         Pi = Pi + deg16 * (4_ln/LongNum(8*i + 1) - 2_ln/LongNum(8*i + 4) - 1_ln/LongNum(8*i + 5) - 1_ln/LongNum(8*i + 6));
     }
     reduceTo100(Pi);
