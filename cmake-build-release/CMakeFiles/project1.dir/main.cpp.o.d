@@ -211,25 +211,6 @@ CMakeFiles/project1.dir/main.cpp.o: \
  /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/istream \
  /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/istream.tcc \
  /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/ctime \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/thread \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/stop_token \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/atomic \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/atomic_base.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/atomic_lockfree_defines.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/atomic_wait.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/std_mutex.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/std_thread.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/tuple \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/uses_allocator.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/unique_ptr.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/semaphore \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/semaphore_base.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/chrono.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/ratio \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/limits \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/parse_numbers.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/atomic_timed_wait.h \
- /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/this_thread_sleep.h \
  /Users/vadimleonov/CLionProjects/project1/long-number-library/LongNum.hpp \
  /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/vector \
  /opt/homebrew/Cellar/gcc@12/12.3.0/include/c++/12/bits/stl_uninitialized.h \

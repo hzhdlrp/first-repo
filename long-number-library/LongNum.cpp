@@ -2,7 +2,7 @@
 #include <cstring>
 #include "LongNum.hpp"
 
- int LongNum::accuracy = 101;
+int LongNum::accuracy = 8;
 
 int max(int a, int b) {
     return a > b ? a : b;
@@ -63,14 +63,6 @@ LongNum::LongNum(int num) {
         ++i;
     }
     this->power = i;
-}
-
-LongNum &LongNum::operator=(const char *number) {
-    LongNum lNum = LongNum(number);
-    this->power = lNum.power;
-    this->digits = lNum.digits;
-    this->sign = lNum.sign;
-    return *this;
 }
 
 LongNum LongNum::operator+(const LongNum &num) {
@@ -137,6 +129,16 @@ LongNum LongNum::operator+(const LongNum &num) {
             }
         }
     }
+
+    for (int i = operand1.digits.size() - 1; i >= 0; --i) {
+        if (operand1.digits[i]) break;
+        operand1.digits.pop_back();
+        operand1.power--;
+    }
+    if (operand1.digits.size() == 0) {
+        operand1.sign = 1;
+    }
+
     return operand1;
 }
 
@@ -183,16 +185,14 @@ LongNum LongNum::operator*(const LongNum& num) {
     return result;
 }
 
-LongNum LongNum::operator*(int i) {
-    LongNum LongI = LongNum(i);
-    return ((*this) * LongI);
-}
-
 std::ostream &operator<<(std::ostream &os, LongNum &num) {
-    for (int i = num.digits.size() - 1; i >= 0; ++i) {
+    for (int i = num.digits.size() - 1; i >= 0; --i) {
         if (num.digits[i]) break;
         num.digits.pop_back();
         num.power--;
+    }
+    if (num.digits.size() == 0) {
+        num.sign = 1;
     }
     if (num.sign == -1) {
         os << '-';
@@ -211,6 +211,10 @@ std::ostream &operator<<(std::ostream &os, LongNum &num) {
             }
         }
     } else {
+        if (num.digits.size() == 0) {
+            os << "0";
+            return os;
+        }
         os << "0.";
         for (int i = 0; i <= - num.power - 1; ++i) {
             os << '0';
@@ -225,10 +229,11 @@ std::ostream &operator<<(std::ostream &os, LongNum &num) {
 LongNum LongNum::operator/(LongNum num) {
     if (num == LongNum(0)) {
         num.digits = {};
-        throw std::invalid_argument("division by 0");
+        throw "error: division by zero\n";
     }
 
-    if (digits.size() == 0) return LongNum("0");
+    LongNum zero("0");
+    if (digits.size() == 0) return zero;
 
     LongNum result;
     bool significant_digit_flag = false;
@@ -255,13 +260,11 @@ LongNum LongNum::operator/(LongNum num) {
            temp = temp - num;
            ++k;
        }
-       //std::cout << temp << " " << num << " " << *this << " " << k << std::endl;
        if (k > 0) significant_digit_flag = true;
        if (significant_digit_flag) {
            result.digits.insert(result.digits.begin(), k);
            result.power++;
        }
-//       if ((*this - result * num) == LongNum(0)) break;
        if (add_digit_iter < digits.size()) {
            temp.digits.insert(temp.digits.begin(), *(digits.end() - add_digit_iter - 1));
            add_digit_iter++;
@@ -270,8 +273,10 @@ LongNum LongNum::operator/(LongNum num) {
            add_digit_iter++;
            result.power--;
        }
-        temp.power++;
+
+       temp.power++;
        if (i == power - numpow + accuracy && significant_digit_flag == 0) accuracy++;
+
     }
 
     result.power -= digits.size() - power;
@@ -280,11 +285,6 @@ LongNum LongNum::operator/(LongNum num) {
     return result;
 }
 
-// std::strong_ordering operator<=>(const LongNum& other)
-// return std::strong_ordering::equal
-
-// используется с++20, но компилятор не воспринимает std::strong_ordering
-// упростил >= как !(<) и <= как !(>)
 bool LongNum::operator<(const LongNum &num) {
     LongNum result = *this - num;
     for (int digit : result.digits) {
@@ -297,12 +297,8 @@ bool LongNum::operator<(const LongNum &num) {
 }
 
 bool LongNum::operator>(const LongNum &num) {
-    LongNum result = *this - num;
-    for (int digit : result.digits) {
-        if (digit) {
-            if (result.sign == -1) return false;
-            else return true;
-        }
+    if (!(*this < num) && !(*this == num)) {
+        return true;
     }
     return false;
 }

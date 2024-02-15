@@ -12,12 +12,10 @@ public:
     explicit LongNum(int);
     LongNum();
 
-    LongNum& operator=(const char *);
     LongNum operator+(const LongNum &);
     LongNum operator-(const LongNum &);
     LongNum operator*(const LongNum &);
     LongNum operator*=(const LongNum &);
-    LongNum operator*(int);
     LongNum operator/(LongNum);
 
     bool operator<(const LongNum &);
@@ -40,4 +38,5 @@ private:
 };
 
 LongNum operator ""_ln(const char *str);
+int max(int, int);
 

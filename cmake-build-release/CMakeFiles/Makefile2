@@ -218,9 +218,9 @@ long-number-library/CMakeFiles/mylib.dir/clean:
 # Target rules for target test/CMakeFiles/tests.dir
 
 # All Build rule for target.
+test/CMakeFiles/tests.dir/all: long-number-library/CMakeFiles/mylib.dir/all
 test/CMakeFiles/tests.dir/all: test/googletest/googletest/CMakeFiles/gtest.dir/all
 test/CMakeFiles/tests.dir/all: test/googletest/googletest/CMakeFiles/gtest_main.dir/all
-test/CMakeFiles/tests.dir/all: long-number-library/CMakeFiles/mylib.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/tests.dir/build.make test/CMakeFiles/tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/tests.dir/build.make test/CMakeFiles/tests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/vadimleonov/CLionProjects/project1/cmake-build-release/CMakeFiles --progress-num=13,14 "Built target tests"
@@ -272,8 +272,8 @@ test/googletest/googlemock/CMakeFiles/gmock.dir/clean:
 # Target rules for target test/googletest/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
-test/googletest/googlemock/CMakeFiles/gmock_main.dir/all: test/googletest/googletest/CMakeFiles/gtest.dir/all
 test/googletest/googlemock/CMakeFiles/gmock_main.dir/all: test/googletest/googlemock/CMakeFiles/gmock.dir/all
+test/googletest/googlemock/CMakeFiles/gmock_main.dir/all: test/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f test/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/googletest/googlemock/CMakeFiles/gmock_main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/vadimleonov/CLionProjects/project1/cmake-build-release/CMakeFiles --progress-num=3,4 "Built target gmock_main"

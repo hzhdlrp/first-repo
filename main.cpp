@@ -1,9 +1,9 @@
 #include <iostream>
 #include <ctime>
-#include <thread>
 #include "long-number-library/LongNum.hpp"
 
 LongNum calcPi(int acc) {
+    LongNum::accuracy = 101;
     clock_t start = clock();
 
     LongNum Pi(0);
@@ -30,6 +30,7 @@ LongNum calcPi(int acc) {
 }
 
 int main() {
+
     int acc;
     std::cout << "enter number of digits after point" << std::endl;
     std::cin >> acc;
