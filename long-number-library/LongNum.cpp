@@ -233,7 +233,8 @@ LongNum LongNum::operator/(LongNum num) {
     }
 
     LongNum zero("0");
-    if (digits.size() == 0) return zero;
+    if (digits.size() == 0)
+        return zero;
 
     LongNum result;
     bool significant_digit_flag = false;
